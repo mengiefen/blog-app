@@ -26,9 +26,12 @@ To get a local copy up and running follow these simple example steps.
   - Open terminal
   - Change to the desired directory then run the following:
 
-    - Run `git clone git@github.com:mengiefen/blog-app.git`
-
-    - cd repo-name/ 
+    - run `git clone git@github.com:mengiefen/blog-app.git`
+    - cd blog-app/ 
+    - git switch feature/setup-controllers
+    - run `bundle install`
+    - run `rails db:create`
+    - run `rails db:migrate`
 ## Running the Application
 >**Steps to excute the app locally*
   - Run `rails s` in the console at working directory
