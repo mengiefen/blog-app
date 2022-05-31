@@ -11,7 +11,7 @@ The Blog app is a classic example of a blog website that is fully functional web
 ## Built with
 
     - Major languages: Ruby, Ruby on Rails
-    - Technologies used: Rubocop, Gitflow
+    - Technologies used: Rubocop, Gitflow, RSpec
 
 ## Prerequisites
 
@@ -23,16 +23,15 @@ The Blog app is a classic example of a blog website that is fully functional web
 
 To get a local copy up and running follow these simple example steps.
 
-- Open terminal
-- Change to the desired directory then run the following:
+  - Open terminal
+  - Change to the desired directory then run the following:
 
-  - Run `git clone git@github.com:mengiefen/blog-app.git`
+    - Run `git clone git@github.com:mengiefen/blog-app.git`
 
-  - cd repo-name/ 
+    - cd repo-name/ 
 ## Running the Application
 >**Steps to excute the app locally*
-
-    - Run "rails s" in the console 
+  - Run `rails s` in the console at working directory
 
 ## Authors
 
