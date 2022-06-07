@@ -1,0 +1,43 @@
+.user-banner { 
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  box-shadow: 0 4px 12px 0 #555;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  padding: 0.5rem 5%;
+  width: 100%; 
+}
+
+.user-banner-picture {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid lightblue;
+}
+
+.user-banner-picture img {
+  width: inherit;
+  height: auto;
+}
+
+.user-banner-detail {
+  display: flex; 
+  width: 67%; 
+  gap: 10%;
+}
+
+.user-banner-name {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+.user-banner-detail p {
+  align-self: end;
+}
+
+
