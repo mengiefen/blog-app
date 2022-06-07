@@ -2,20 +2,19 @@
   padding: 1rem 5%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem; 
   margin-bottom: 1rem;
   box-shadow: -4px 4px 10px lightgray inset;
 }
-.post-comment  {
+
+.post-comment {
   line-height: 1.5;
   font-style: italic;
 }
 
-.post-comment p{
+.post-comment p {
   font-weight: 300;
 }
 
 .post-comment strong {
-  font-weight: 700; 
+  font-weight: 700;
 }
-

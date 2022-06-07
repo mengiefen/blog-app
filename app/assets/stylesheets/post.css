@@ -1,4 +1,4 @@
-.post { 
+.post {
   padding: 0.5rem 5%;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
   text-transform: uppercase;
 }
 
-.post-text  {
+.post-text {
   line-height: 1.5;
   font-style: italic;
 }
