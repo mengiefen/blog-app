@@ -1,1 +1,6 @@
-<h1>Here is a detail of a single user</h1>
+<h1>Here is a  the detail of a single user</h1>
+<ul>
+  <%(1..10).each do |number|%>
+    <li><%= "This is the list element - #{number}"%></li>
+  <%end%>
+</ul>

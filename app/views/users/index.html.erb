@@ -1,1 +1,15 @@
-<h1>Here is a list of users in the blog-app</h1>
+<section class="users-list"> 
+  <h1>Here is a list of users in the blog-app</h1>
+  <%@users.each do |user| %>
+    <div class="user">
+      <div class="user-picture">
+        <img src=<%=user.photo%> alt=<%=user.name%> />
+
+      </div>
+      <div class="user-detail">
+        <h2 class="user-name"><%=user.name %></h2>
+        <p><strong>Number of Posts: <%= user.posts_counter %>
+      </div>    
+    </div>
+  <%end %>
+</section>
