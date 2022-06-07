@@ -1,7 +1,10 @@
-<h1>Here is a list of posts for a given user</h1>
-<ul>
-  <% @posts.each do |post| %>
-    <li><%= post.text %>
-  <%end%>
-</ul>
-
+<section class="users-list"> 
+  <h1>List of Post</h1> 
+  <div class="user-post">
+    <%= render "shared/profile", user: @posts.first.author %>   
+    <%@posts.each do |post| %>
+      <%= render "shared/post", post: post %>  
+      <%= render "shared/comments", comments: post.comments %> 
+    <%end %>    
+  </div>
+</section>

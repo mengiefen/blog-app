@@ -1,2 +1,18 @@
-<h1>Here is a specific post for a given user</h1>
-<h1><%= @post.text %></h1>
+<section class="user-post-detail"> 
+    <div class="user-picture">
+      <img src=<%=@post.author.photo%> alt=<%=@post.author.name%> />
+    </div>
+    <div class="user-detail"> 
+      <h2 class="user-name"><%=@post.author.name %></h2>
+      <p><strong>Number of Posts: <%= @post.author.posts_counter || 0 %>
+    </div>    
+    <p><%= @post.text %></p>
+    <%= render "shared/comments", comments: @post.comments %>  
+
+</section>
+
+
+
+
+
+
