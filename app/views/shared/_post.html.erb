@@ -1,0 +1,14 @@
+ <%= stylesheet_link_tag "post", "data-turbo-track": "reload" %>
+
+  <div class="post">
+    <h2 class="post-title"> Post # <%= post.id %> </h2>
+    <p class="post-text"><%= post.text%></p>
+    <div class="post-status">
+      <span class="comment">
+        <strong>Comments: </strong> <%= post.comments_counter || 0 %>
+      </span>
+        <span class="like">
+        <strong>Likes: </strong> <%= post.likes_counter || 0 %>
+      </span>
+    </div>
+  </div>

@@ -1,0 +1,15 @@
+ <%= stylesheet_link_tag "profile", "data-turbo-track": "reload" %>
+
+<div class="user-banner">
+  <div class="user-banner-picture">
+    <img src=<%=user.photo%> alt=<%=user.name%> />
+  </div>
+  <div class="user-banner-detail">
+    <h2 class="user-banner-name"><%=user.name %></h2>
+    <p><strong>Number of Posts: <%= user.posts_counter || 0%>
+  </div>    
+</div>
+
+   
+
+
