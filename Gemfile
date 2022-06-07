@@ -78,4 +78,5 @@ gem 'rails-controller-testing'
 group :development, :test do
   gem 'rspec-rails'
 end
+
 gem 'rack-cors', require: 'rack/cors'
