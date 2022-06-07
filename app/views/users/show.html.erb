@@ -1,6 +1,21 @@
-<h1>Here is a  the detail of a single user</h1>
-<ul>
-  <%(1..10).each do |number|%>
-    <li><%= "This is the list element - #{number}"%></li>
+ <%= stylesheet_link_tag "user_detail", "data-turbo-track": "reload" %>
+
+<section class="user">
+  <%= render "shared/profile",  user: @user %>
+  <div class="user-bio">
+  <h3>Bio</h3>
+    <p><%=@user.bio%></p>
+  </div>
+
+  <% @user.posts.limit(2).each do |post| %>
+    <%= render "shared/post", post: post %>
+  <%end %>
+
+  <% if @user.posts.count > 2 %>
+    <button type="button" class="btn btn-secondary">
+      See Mor Posts
+    <button>      
   <%end%>
-</ul>
+
+
+</section>
