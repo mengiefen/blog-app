@@ -1,7 +1,11 @@
 class Post < ApplicationRecord
   belongs_to :author, class_name: 'User'
-  has_many :likes
-  has_many :comments
+  has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
+
+  validates :title, presence: true
+  validates :text, presence: true
+
   after_save :increment_by_one
   after_destroy :decrement_by_one
 

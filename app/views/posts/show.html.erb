@@ -5,10 +5,13 @@
     <div class="user-detail"> 
       <h2 class="user-name"><%=@post.author.name %></h2>
       <p><strong>Number of Posts: <%= @post.author.posts_counter || 0 %>
+      
     </div>    
     <p><%= @post.text %></p>
-    <%= render "shared/comments", comments: @post.comments %>  
-
+    <%= render "shared/comments", comments: @post.comments %>     
+     <%= link_to "Back to Posts", user_posts_path %> 
+    <%= link_to "HOME", root_path %>   
+     
 </section>
 
 
