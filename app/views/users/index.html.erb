@@ -1,6 +1,5 @@
 <section class="users-list"> 
-  <h1>Here is a list of users in the blog-app</h1>
   <%@users.each do |user| %>
-     <%= render "shared/profile",  user: user %>
+     <%= render "shared/profile",  user: user %>   
   <%end %>
 </section>

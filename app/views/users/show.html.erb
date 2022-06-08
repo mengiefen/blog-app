@@ -13,9 +13,10 @@
 
   <% if @user.posts.count > 2 %>
     <button type="button" class="btn btn-secondary">
-      See Mor Posts
-    <button>      
+      See All Posts
+    <button>
   <%end%>
 
+  <%= link_to "HOME", root_path %>   
 
 </section>

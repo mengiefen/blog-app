@@ -23,3 +23,7 @@
   color: #222;
   align-self: end;
 }
+
+.comment {
+  padding-right: 2rem;
+}

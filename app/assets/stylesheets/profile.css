@@ -40,3 +40,6 @@
 .user-banner-detail p {
   align-self: end;
 }
+.user-banner-detail p strong {
+  padding-right: 2rem ;
+}

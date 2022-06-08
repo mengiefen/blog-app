@@ -9,6 +9,7 @@
       </span>
         <span class="like">
         <strong>Likes: </strong> <%= post.likes_counter || 0 %>
-      </span>
+      </span>       
+        <%= link_to "See Post", user_post_path(post, user_id: post.author_id) %>     
     </div>
   </div>

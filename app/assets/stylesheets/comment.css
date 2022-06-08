@@ -1,9 +1,9 @@
 .post-comments {
   padding: 1rem 5%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   margin-bottom: 1rem;
-  box-shadow: -4px 4px 10px lightgray inset;
+  border: 1px solid #987
 }
 
 .post-comment {
