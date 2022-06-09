@@ -83,5 +83,7 @@ gem 'rack-cors', require: 'rack/cors'
 
 gem 'cssbundling-rails'
 
-gem "bootstrap", "~> 5.0"
-gem "bootstrap_form", "~> 5.0"
+gem 'bootstrap', '~> 5.0'
+gem 'bootstrap_form', '~> 5.0'
+
+gem 'seed_dump'

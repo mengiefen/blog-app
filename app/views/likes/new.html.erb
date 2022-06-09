@@ -1,6 +1,0 @@
-<%= bootstrap_form_with model: @like, url: new_comment_path do |form| %>
-  
-  <%= form.hidden_field :author_id, value: params[:user_id] %><br>
-  <%= form.hidden_field :post_id, value: params[:post_id] %><br>  
-
-<% end %>
