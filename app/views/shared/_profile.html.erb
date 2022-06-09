@@ -1,16 +1,18 @@
- <%= stylesheet_link_tag "profile", "data-turbo-track": "reload" %>
 
-<div class="user-banner">
-  <div class="user-banner-picture">
-    <img src=<%=user.photo%> alt=<%=user.name%> />
-  </div>
-  <div class="user-banner-detail">
-    <h2 class="user-banner-name"><%=user.name %></h2>
-    <p><strong>Number of Posts: <%= user.posts_counter || 0%></strong>
-      <% unless params[:id] %>    
-        <%= link_to "See Posts", user %>
+<div class="card d-flex flex-row px-5 py-2 my-2 justify-content-between user-banner">  
+  <img class="rounded-circle border border-dark img-fluid" style="width: 150px; height:150px;" src=<%=user.photo%> alt=<%=user.name%> />
+  <div class="d-flex flex-column align-items-between w-70 user-banner-detail">
+    <h2 class="user-banner-name pe-3"><%=user.name %></h2>
+    <div class=" d-flex flex-row align-items-center">
+      <strong class="pe-5" >Number of Posts: <%= user.posts_counter || 0%></strong>
+      <% unless params[:id] %>
+        <ul class="user-btn-list d-flex list-unstyled"> 
+          <li><%= link_to "See Posts", user, class:"btn btn-primary me-3" %></li>
+          <li><%= link_to "Edit", edit_user_path(user), class: "btn btn-secondary me-3" %></li>
+       
+        </ul>      
       <%end %>
-    </p>
+    </div>
   </div>
 </div>
 
