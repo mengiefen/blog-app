@@ -40,13 +40,15 @@
 .user-banner-detail p {
   align-self: end;
 }
+
 .user-banner-detail p strong {
-  padding-right: 2rem ;
+  padding-right: 2rem;
 }
+
 .user-btn-list {
   list-style: none;
   display: flex;
-  align-self: end;  
+  align-self: end;
   gap: 2rem;
 }
 
