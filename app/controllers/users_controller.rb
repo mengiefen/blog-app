@@ -10,7 +10,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
+    @user.posts_counter = 0
+    if @user.save && @user.valid?
       redirect_to @user, notice: 'User Created Successfuly!'
     else
       render :new
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    if @user.update(user_params)
+    if @user.update!(user_params)
       redirect_to @user, notice: 'User updated successfully'
     else
       render :edit, status: :unprocessable_entity
