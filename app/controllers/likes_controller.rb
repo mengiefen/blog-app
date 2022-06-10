@@ -6,7 +6,7 @@ class LikesController < ApplicationController
   end
 
   def create
-    # return if liked?
+    return if liked?
     redirect_to "/users/#{params[:user_id]}"
 
     Like.create(like_params)
