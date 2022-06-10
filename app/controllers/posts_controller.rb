@@ -14,8 +14,10 @@ class PostsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @post = @user.posts.new(post_params)
+    @post.likes_counter = 0
+    @post.comments_counter = 0
 
-    if @post.save
+    if @post.save && @post.valid?
       redirect_to user_posts_path, notice: 'Post was successfully created'
     else
       render :new
