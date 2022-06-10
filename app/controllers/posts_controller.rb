@@ -20,6 +20,7 @@ class PostsController < ApplicationController
     if @post.save && @post.valid?
       redirect_to user_posts_path, notice: 'Post was successfully created'
     else
+      flash[:error] = 'Post Could not Be Created!'
       render :new
     end
   end
@@ -28,15 +29,17 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
+      flash[:notice] = 'Post was successfully deleted'
       redirect_to @post
     else
+      flash[:error] = 'Unable to create new post!'
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @post.destroy
-    redirect_to user_posts_path, status: :see_other
+    redirect_to user_posts_path, notice: 'The post successfully deleted!'
   end
 
   private

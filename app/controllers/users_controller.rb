@@ -14,8 +14,8 @@ class UsersController < ApplicationController
     if @user.save && @user.valid?
       redirect_to @user, notice: 'User Created Successfuly!'
     else
+      flash[:error] = 'User Not Created!'
       render :new
-      # render :new, status: :unprocessable_entity
     end
   end
 
