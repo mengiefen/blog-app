@@ -3,7 +3,7 @@ class CommentsController < PostsController
     @comment = Comment.new
   end
 
-  def create    
+  def create
     @comment = Comment.new(comment_params)
 
     if @comment.save
