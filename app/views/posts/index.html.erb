@@ -5,7 +5,7 @@
     <%= link_to "CREATE NEW POST", new_user_post_path, class: "my-2 ms-auto btn btn-primary" %>      
     <%@posts.each do |post| %>
       <%= render "shared/post", post: post %>  
-      <%= render "shared/comments", comments: post.comments %> 
+      <%= render "shared/comments", comments: post.comments.includes(:author) %> 
     <%end %>    
-  </div>
+  </div> 
 </section>
