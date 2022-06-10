@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    @posts = Post.where(author_id: params[:user_id]).all
+    @posts = Post.where(author_id: params[:user_id])
   end
 
   def show; end
