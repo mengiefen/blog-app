@@ -1,0 +1,29 @@
+<%= bootstrap_form_with model: @user do |form| %>
+  <div>  
+    <%= form.text_field :name, size: "70x1" %>
+  </div>
+  <% @user.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+      <% end %>
+   </div>
+  <div>   
+    <%= form.text_field :photo, size: "70x1" %>
+  </div>
+
+   <% @user.errors.full_messages_for(:photo).each do |message| %>
+      <div><%= message %></div>
+      <% end %>
+   </div>
+
+  <div>    
+    <%= form.text_field :bio, size:"70x10" %>
+  </div>
+
+   <% @user.errors.full_messages_for(:bio).each do |message| %>
+      <div><%= message %></div>
+      <% end %>
+   </div>
+
+  <%= form.submit "Add User" %>
+  
+<% end %>

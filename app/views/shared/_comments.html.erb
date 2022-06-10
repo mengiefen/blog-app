@@ -1,12 +1,11 @@
- <%= stylesheet_link_tag "comment", "data-turbo-track": "reload" %>
-
-<div class="post-comments">
+<div class=" ps-3 post-comments">
   <%if comments %>
     <% comments.each do |comment| %>
-      <p class="post-comment">
-        <strong><%= comment.author.name %>: </strong>
+      <p class=" text-muted card p-2 my-2 post-comment fw-light fst-italic text-capitalize " >
+        <strong class="text-primary fw-bold"><%= comment.author.name %>: </strong>
         <%=comment.text%> 
       </p>
     <%end%>
-  <%end%>
+  <%end%> 
+ 
 </div>

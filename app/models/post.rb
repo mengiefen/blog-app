@@ -6,14 +6,14 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :text, presence: true
 
-  after_save :increment_by_one
-  after_destroy :decrement_by_one
+  after_save :increment_post_count
+  after_destroy :decrement_post_count
 
-  def increment_by_one
+  def increment_post_count
     author.increment! :posts_counter
   end
 
-  def decrement_by_one
+  def decrement_post_count
     author.decrement! :posts_counter
   end
 

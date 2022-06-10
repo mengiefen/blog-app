@@ -19,6 +19,7 @@ The Blog app is a classic example of a blog website that is fully functional web
     - Ruby installed on local system
     - npm ( Node Package Manager )
     - Git and Github Account
+    - Yarn 
 
 ## Getting Started
 
@@ -29,7 +30,8 @@ To get a local copy up and running follow these simple example steps.
 
     - run `git clone git@github.com:mengiefen/blog-app.git`
     - cd blog-app/ 
-    - git switch feature/setup-controllers
+    - git switch feature/app-forms
+    - run `yarn install`
     - run `bundle install`
     - run `rails db:create`
     - run `rails db:migrate`
