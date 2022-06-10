@@ -16,16 +16,16 @@
       </div> 
      
      
-      <%= link_to "BACK", user_posts_path, class: "btn btn-secondary" %>
-      <%= link_to "HOME", users_path, class: "btn btn-primary" %> 
+      <%= link_to "BACK", user_posts_path, class: "btn btn-secondary my-3" %>
+      <%= link_to "HOME", users_path, class: "btn btn-primary my-3" %> 
                 
           
   
-    <%= render "shared/comments", comments: @post.comments %>     
+    <%= render "shared/comments", comments: @post.comments.includes(:author) %>     
     
-    <%= link_to "Add Comment",  new_comment_path(user_id: @user.id, post_id: @post.id), class:"btn btn-success pe-3" %>   
-    <%= link_to 'Like', new_like_path(user_id: @user.id, post_id: @post.id),method: :post, class:"btn btn-primary pe-3" %>    
-    <%= link_to "Delete", user_post_path(@post, user_id: @user.id), class:"btn btn-danger", data: {
+    <%= link_to "Add Comment",  new_comment_path(user_id: @user.id, post_id: @post.id), class:"btn btn-success pe-3 my-3" %>   
+    <%= link_to 'Like', new_like_path(user_id: @user.id, post_id: @post.id),method: :post, class:"btn btn-primary pe-3 my-3" %>    
+    <%= link_to "Delete", user_post_path(@post, user_id: @user.id), class:"btn btn-danger my-3", data: {
                 turbo_method: :delete,
                 turbo_confirm: "Are you sure?"
               } %>

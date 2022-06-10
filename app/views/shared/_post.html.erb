@@ -3,10 +3,10 @@
     <p class="post-text"><%= post.text%></p>
     <div class="post-status">
       <span class="comment pe-3">
-        <strong >Comments: </strong> <%= post.comments_counter || 0 %>
+        <strong >Comments: </strong> <%= post.comments_counter %>
       </span>
         <span class="like pe-3">
-        <strong>Likes: </strong> <%= post.likes_counter || 0 %>
+        <strong>Likes: </strong> <%= post.likes_counter %>
       </span>       
         <%= link_to "See Post", user_post_path(post, user_id: post.author_id), class:"btn btn-link text-decoration-none" %>       
     </div>

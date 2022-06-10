@@ -1,6 +1,6 @@
-<section class="users-list"> 
+<section class="users-list align-items-right"> 
   <%@users.each do |user| %>
      <%= render "shared/profile",  user: user %>   
   <%end %>
-  <%= link_to 'New User', new_user_path %>
+  <%= link_to 'New User', new_user_path, class: "btn btn-primary my-3 px-5 py-2" %>
 </section>

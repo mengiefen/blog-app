@@ -8,6 +8,10 @@
     "esbuild": "^0.14.43",
     "sass": "^1.52.3"
   },
+
+  "overrides": {
+    "autoprefixer": "10.4.5"
+ },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
     "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules"

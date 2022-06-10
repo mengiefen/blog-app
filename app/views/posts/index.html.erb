@@ -1,11 +1,11 @@
 <section class="users-list"> 
   <h1>List of Post</h1> 
   <div class="user-post">
-    <%= render "shared/profile", user: @posts.first.author %>   
+    <%= render "shared/profile", user: @user %>   
     <%= link_to "CREATE NEW POST", new_user_post_path, class: "my-2 ms-auto btn btn-primary" %>      
     <%@posts.each do |post| %>
       <%= render "shared/post", post: post %>  
-      <%= render "shared/comments", comments: post.comments %> 
+      <%= render "shared/comments", comments: post.comments.includes(:author)%> 
     <%end %>    
-  </div>
+  </div> 
 </section>
