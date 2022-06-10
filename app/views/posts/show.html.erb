@@ -21,7 +21,7 @@
                 
           
   
-    <%= render "shared/comments", comments: @post.comments %>     
+    <%= render "shared/comments", comments: @post.comments.includes(:author) %>     
     
     <%= link_to "Add Comment",  new_comment_path(user_id: @user.id, post_id: @post.id), class:"btn btn-success pe-3" %>   
     <%= link_to 'Like', new_like_path(user_id: @user.id, post_id: @post.id),method: :post, class:"btn btn-primary pe-3" %>    

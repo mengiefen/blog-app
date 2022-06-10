@@ -10,7 +10,7 @@
     <p class="ps-3"><%=@user.bio%></p>
   </div>
 
-  <% @user.posts.limit(2).each do |post| %>
+  <% @user.posts.limit(3).each do |post| %>
     <%= render "shared/post", post: post %>
   <%end %>
 
