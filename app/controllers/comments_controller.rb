@@ -3,17 +3,17 @@ class CommentsController < PostsController
     @comment = Comment.new
   end
 
-  def create
-    # @user = User.find(params[:user_id])
-    # @post = Post.find(params[:post_id])
+  def create    
     @comment = Comment.new(comment_params)
 
     if @comment.save
+      flash[:notice] = 'Comment Created!'
       redirect_to user_post_path(
         user_id: params[:user_id],
         id: params[:post_id]
       )
     else
+      flash[:error] = 'Unable to create new comment!'
       render :new
     end
   end
