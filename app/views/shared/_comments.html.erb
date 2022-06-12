@@ -1,7 +1,7 @@
 <div class=" ps-3 post-comments">
   <%if comments %>
     <% comments.each do |comment| %>
-      <p class=" text-muted card p-2 my-2 post-comment fw-light fst-italic text-capitalize " >
+      <p class=" bg-content ext-muted card p-2 my-2 post-comment fw-light fst-italic text-capitalize " >
         <strong class="text-primary fw-bold"><%= comment.author.name %>: </strong>
         <%=comment.text%> 
       </p>

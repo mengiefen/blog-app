@@ -1,4 +1,4 @@
-class LikesController < ApplicationController
+class LikesController < PostsController
   before_action :find_specific_post, only: [:like]
 
   def new
@@ -6,13 +6,16 @@ class LikesController < ApplicationController
   end
 
   def like
-    @like = Like.new(author_id: @user.id, post_id: @post.id)
-    if @like.save
-      flash[:notice] = 'You post is liked!!'
+    if liked?
+      flash[:alert] = 'The post has been already liked!'
       redirect_to user_post_path(user_id: params[:user_id], id: params[:post_id])
-    else
-      flash[:error] = 'Likes cannot be created!!'
+      return
     end
+    @like = Like.new(author_id: @user.id, post_id: @post.id)
+    return unless @like.save
+
+    flash[:notice] = 'Thank you for liking the post!'
+    redirect_to user_post_path(user_id: params[:user_id], id: params[:post_id])
   end
 
   private

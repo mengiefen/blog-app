@@ -7,13 +7,13 @@ class CommentsController < PostsController
     @comment = Comment.new(comment_params)
 
     if @comment.save
-      flash[:notice] = 'Comment Created!'
+      flash[:notice] = 'Your comment is successfuly added!'
       redirect_to user_post_path(
         user_id: params[:user_id],
         id: params[:post_id]
       )
     else
-      flash[:error] = 'Unable to create new comment!'
+      flash[:alert] = 'Unable to create new comment!'
       render :new
     end
   end

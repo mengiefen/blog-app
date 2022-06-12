@@ -10,8 +10,9 @@
 
   </head>
 
-  <body class="container-fluid px-lg-5" >
-    <h1>Blog Website- for Everyone</h1>
+  <body class="container-fluid px-lg-5 px-2 bg-custom app " >
+    <%= render partial: "shared/navbar" %>  
+    <%= render partial: "shared/message"%>
     <%= yield %>
   </body>
 </html>
