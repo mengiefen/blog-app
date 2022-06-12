@@ -1,6 +1,6 @@
 <section class="user-post-detail"> 
-  <div class = "card d-flex flex-row px-5 py-2 my-2 justify-content-between align-items-center"  >
-    <div card class="user-picture">
+  <div class = "bg-content card d-flex flex-row px-5 py-2 mb-2 justify-content-between align-items-center"  >
+    <div card class="user-picture ">
       <img class="rounded-circle border border-dark img-fluid" style="width: 150px; height:150px;" src=<%=@post.author.photo%> alt=<%=@post.author.name%> />
     </div>
     <div class="user-detail"> 
@@ -21,14 +21,28 @@
                 
           
   
-    <%= render "shared/comments", comments: @post.comments.includes(:author) %>     
+    <%= render "shared/comments", comments: @post.comments.includes(:author) %>
+    <div class="d-flex gap-3">   
     
-    <%= link_to "Add Comment",  new_comment_path(user_id: @user.id, post_id: @post.id), class:"btn btn-success pe-3 my-3" %>   
-    <%= link_to 'Like', new_like_path(user_id: @user.id, post_id: @post.id),method: :post, class:"btn btn-primary pe-3 my-3" %>    
-    <%= link_to "Delete", user_post_path(@post, user_id: @user.id), class:"btn btn-danger my-3", data: {
-                turbo_method: :delete,
-                turbo_confirm: "Are you sure?"
-              } %>
+      <%= link_to "Add Comment",
+          new_comment_path(user_id: @post.author_id, post_id: @post.id),
+          class:"btn btn-success pe-3 my-3 h4" %>   
+
+      <%= link_to new_like_path(user_id: @post.author_id, post_id: @post.id),
+          method: :post, class: "btn btn-primary my-3" do %>    
+        <i class="bi bi-hand-thumbs-up h4"></i>
+        <span class="badge badge-danger bg-danger rounded-circle ms-2 align-self-start"><%= @post.likes_counter %></span> 
+      <%end %>    
+    
+      <% if @post.author_id == @current_user.id %>   
+        <%= button_to "DELETE POST", [@current_user, @post],
+                    confirm: "Are you sure?",
+                    method: :delete,
+                    class:"btn btn-danger pe-3 my-3 py-2 h4"                  
+                  %>
+      <% end %>
+    </div>
+      
 </section>
 
 

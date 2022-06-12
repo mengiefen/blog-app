@@ -1,25 +1,26 @@
-<section class="user">
+<section class="user">  
+  
   <%= render "shared/profile",  user: @user %>
-    <%= link_to "CREATE NEW POST", new_user_post_path(@user), class:"btn btn-primary pe-3" %>      
-   <%= link_to "Delete Account", user_path(@user), class:"btn btn-danger", data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %>
-  <div class="card mt-2 p-3 user-bio">
-  <h3>Bio</h3>
+  <div class="d-flex">    
+    <%= link_to "NEW POST", new_user_post_path(@user), class:"btn btn-primary me-3" %>
+    
+    <%= button_to "DELETE USER", user_path,                                                      
+                    confirm: "Are you sure?",                
+                    method: :delete, 
+                    class:"btn btn-danger "  %>
+  </div>
+  <div class="card mt-2 p-3 user-bio bg-content">
+    <h3>Bio</h3>
     <p class="ps-3"><%=@user.bio%></p>
   </div>
 
-  <% @user.posts.limit(3).each do |post| %>
+  <% @user.posts.order(id: :asc).limit(3).each do |post| %>
     <%= render "shared/post", post: post %>
   <%end %>
 
-  <% if @user.posts.count > 2 %>
-    <button type="button" class="btn btn-secondary me-3 my-3">
-      See All Posts
-    <button>
+  <% if @user.posts.count > 3 %>  
+    <input type="button" value="See All Posts" class= "btn btn-secondary me-3 my-3" />
   <%end%>
 
-  <%= link_to "HOME", users_path, class:"btn btn-outline-primary my-3" %>   
-
+  <%= link_to "HOME", users_path, class:"btn btn-primary my-3" %>    
 </section>

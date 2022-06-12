@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update destroy]
+  before_action :set_user, only: %i[show edit update]
   def index
-    @users = User.all
+    @users = User.all.order(id: :asc)
   end
 
   def new
@@ -12,9 +12,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.posts_counter = 0
     if @user.save && @user.valid?
-      redirect_to @user, notice: 'User Created Successfuly!'
+      redirect_to @user, notice: 'The user created successfuly!'
     else
-      flash[:error] = 'User Not Created!'
+      flash[:alert] = 'The user cannot be created!'
       render :new
     end
   end
@@ -23,8 +23,9 @@ class UsersController < ApplicationController
 
   def update
     if @user.update!(user_params)
-      redirect_to @user, notice: 'User updated successfully'
+      redirect_to @user, notice: 'The user updated successfully'
     else
+      flash[:alert] = 'The user could not be updated!'
       render :edit, status: :unprocessable_entity
     end
   end
@@ -33,8 +34,16 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-    redirect_to users_path, notice: 'User Successfully Deleted!'
+    if @user.destroy
+      redirect_to users_path, notice: 'The user successfully deleted!'
+    else
+      redirect users_path
+      flash[:alert] = "You don't have previlage to delete the user!"
+    end
+
+    # @user = User.find(params[:id])
+    # @user.destroy
+    # redirect_to users_path
   end
 
   private
