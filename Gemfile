@@ -88,3 +88,5 @@ gem 'bootstrap', '~> 5.0'
 gem 'bootstrap_form', '~> 5.0'
 
 gem 'seed_dump'
+
+gem 'devise'
