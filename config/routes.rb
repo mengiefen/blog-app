@@ -1,10 +1,11 @@
-Rails.application.routes.draw do 
-  devise_for :users
- 
-  root to: "home#index"
-  resources :users do
+Rails.application.routes.draw do
+    devise_for :users, controllers: {
+      sessions: 'users/sessions'
+    }
+    root to: "users#index"
+    resources :users do
     resources :posts 
-  end
+    end
 
 #   # resources :comments, path: "/users/:user_id/posts/:post_id/comment", only: [:new, :create, :destroy]
 #  resources :likes, path: "/users/::user_id/posts/:post_id/like", to: "likes#like"
