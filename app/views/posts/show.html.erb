@@ -34,7 +34,7 @@
         <span class="badge badge-danger bg-danger rounded-circle ms-2 align-self-start"><%= @post.likes_counter %></span> 
       <%end %>    
     
-      <% if can? :destroy, @user %>   
+      <% if can? :destroy, current_user %>   
         <%= button_to "DELETE POST", [current_user, @post],
                     confirm: "Are you sure?",
                     method: :delete,
