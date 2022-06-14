@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-    devise_for :users, controllers: {
-      sessions: 'users/sessions'
-    }    
-
-
+    devise_for :users
     root to: "users#index"
     resources :users do
     resources :posts 
@@ -16,5 +12,10 @@ Rails.application.routes.draw do
   post '/users/:user_id/posts/:post_id/comment', to: 'comments#create' #
   get '/users/:user_id/posts/:post_id/like', to: 'likes#like'
   post '/users/:user_id/posts/:post_id/like', to: 'likes#like', as: 'new_like'
+
+
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
  
 end
