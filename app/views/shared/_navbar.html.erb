@@ -1,14 +1,38 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-secondary px-lg-5 px-2 py-lg-3 text-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary px-lg-5 px-2 text-light">
   <%= link_to "Bloggers", users_path, class:"navbar-brand" %>       
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-       <%= link_to "Home", users_path, class:"nav-link active" %>       
-      </li>    
-    </ul>    
+  <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">  
+      <li class="nav-item active">   
+        <%= link_to "Home", users_path, class:"nav-link active" %>       
+      </li>  
+
+      <% if user_signed_in? %>      
+        <li class="nav-item active">
+          <%= link_to "Edit Profile", destroy_user_session_path, method: :delete, class:"nav-link active"%>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"nav-link active"%>
+        </li>
+      <% else %>
+        
+        <li class="nav-item active">
+          <%= link_to 'Register', new_user_registration_path, method: :post, class:"nav-link active" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to 'Log in', new_user_session_path, class:"nav-link active" %>
+        </li>
+    <% end %> 
+    </ul>
+    <% if user_signed_in? %>
+      <div class="d-flex gap-3 align-items-center">
+        Welcome
+        <label class="text-warning" > <%= current_user.name %></label>
+       <img class="rounded-circle border border-dark img-fluid" style="width: 45px; height:45px;" src=<%=current_user.photo%> alt=<%=current_user.name%> />
+      </div>
+    <% end %>
   </div>
 </nav>

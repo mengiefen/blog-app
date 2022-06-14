@@ -34,8 +34,8 @@
         <span class="badge badge-danger bg-danger rounded-circle ms-2 align-self-start"><%= @post.likes_counter %></span> 
       <%end %>    
     
-      <% if @post.author_id == @current_user.id %>   
-        <%= button_to "DELETE POST", [@current_user, @post],
+      <% if @post.author_id == current_user.id %>   
+        <%= button_to "DELETE POST", [current_user, @post],
                     confirm: "Are you sure?",
                     method: :delete,
                     class:"btn btn-danger pe-3 my-3 py-2 h4"                  
