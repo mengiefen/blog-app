@@ -11,6 +11,13 @@
           %>
         <% end %> 
       </p>
+      <% if can? :destroy, @user %>   
+        <%= button_to "DELETE COMMENT", [current_user, comment],
+                    confirm: "Are you sure?",
+                    method: :delete,
+                    class:"btn btn-danger pe-3 my-3 py-2 h4"                  
+                  %>
+      <% end %>
     <%end%>
   <%end%> 
  
