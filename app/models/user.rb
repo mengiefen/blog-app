@@ -23,6 +23,10 @@ class User < ApplicationRecord
     role == 'admin'
   end
 
+  def present?
+    id != nil
+  end
+
   def recent_post
     posts.order(created_at: :desc).limit(3)
   end

@@ -7,7 +7,7 @@ class Ability
     can :read, Post # start by defining rules for all users, also not logged ones
     return unless user.present?
 
-    can :manage, Post, user_id: user.id # if the user is logged in can manage it's own posts
+    can :manage, Post, author_id: user.id # if the user is logged in can manage it's own posts
     can :create, Comment # logged in users can also create comments
 
     return unless user.admin?

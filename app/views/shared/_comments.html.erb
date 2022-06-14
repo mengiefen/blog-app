@@ -3,7 +3,13 @@
     <% comments.each do |comment| %>
       <p class=" bg-content ext-muted card p-2 my-2 post-comment fw-light fst-italic text-capitalize " >
         <strong class="text-primary fw-bold"><%= comment.author.name %>: </strong>
-        <%=comment.text%> 
+        <%=comment.text%>
+        <%if can? :destroy, comment %>
+          <%= button_to 'DELETE',,
+            method: :delete,
+            class:"btn btn-danger pe-3 my-3 py-2 h4"          
+          %>
+        <% end %> 
       </p>
     <%end%>
   <%end%> 
