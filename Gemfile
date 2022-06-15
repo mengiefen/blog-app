@@ -38,6 +38,7 @@ end
 
 gem 'bootstrap', '~> 5.0'
 gem 'bootstrap_form', '~> 5.0'
+gem 'cancancan'
 gem 'cssbundling-rails'
 gem 'devise'
 gem 'rack-cors', require: 'rack/cors'
