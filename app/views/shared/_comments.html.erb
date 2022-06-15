@@ -5,20 +5,12 @@
         <strong class="text-primary fw-bold"><%= comment.author.name %>: </strong>
         <%=comment.text%>
         <%if can? :destroy, comment %>
-          <%= button_to 'DELETE',,
+          <%= button_to 'DELETE', delete_comment_path(user_id: comment.author_id, post_id:comment.post_id, id: comment.id), 
             method: :delete,
-            class:"btn btn-danger pe-3 my-3 py-2 h4"          
+            class:"btn btn-danger pe-3 my-3 py-2 h4"
           %>
-        <% end %> 
+        <% end %>
       </p>
-      <% if can? :destroy, @user %>   
-        <%= button_to "DELETE COMMENT", [current_user, comment],
-                    confirm: "Are you sure?",
-                    method: :delete,
-                    class:"btn btn-danger pe-3 my-3 py-2 h4"                  
-                  %>
-      <% end %>
     <%end%>
-  <%end%> 
- 
+  <%end%>
 </div>
