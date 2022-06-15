@@ -24,7 +24,7 @@ class CommentsController < PostsController
     @comment = @post.comments.find(params[:id])
     if @comment.destroy
       flash[:notice] = 'Comment deleted'
-      redirect_to user_post_path(user_id: @user.id, id: @post.id )
+      redirect_to user_post_path(user_id: @user.id, id: @post.id)
     else
       flash[:alert] = 'You are not authorized to delete'
     end
