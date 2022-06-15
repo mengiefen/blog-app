@@ -30,16 +30,16 @@ group :development do
 end
 
 group :test do
-  gem 'selenium-webdriver'
   gem 'database_cleaner-active_record'
+  gem 'selenium-webdriver'
 end
 
-gem 'rails-controller-testing'
-gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'bootstrap', '~> 5.0'
 gem 'bootstrap_form', '~> 5.0'
 gem 'cancancan'
 gem 'cssbundling-rails'
 gem 'devise'
 gem 'rack-cors', require: 'rack/cors'
+gem 'rails-controller-testing'
+gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'seed_dump'
