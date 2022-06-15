@@ -39,7 +39,7 @@ RSpec.describe 'UserIndexPage', type: :system do
       fill_in 'user_email', with: 'a@g.com'
       fill_in 'user_password', with: '123456'
       click_button 'Log in'
-      expect(page).to have_content @user_1.name
+      expect(page).to have_content @user_1.name 
     end
 
     # it 'shows the profile picture for each user' do

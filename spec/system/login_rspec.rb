@@ -1,7 +1,7 @@
 # require 'rails_helper'
 
 # RSpec.describe 'LoginPage', type: :system do
-#   before do
+#   before :all do
 #     @user_1 = User.create!(
 #       name: 'Babi Melka',
 #       photo: 'https://randomuser.me/api/portraits/men/3.jpg',
