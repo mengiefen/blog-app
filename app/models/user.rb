@@ -13,8 +13,6 @@ class User < ApplicationRecord
   validates :posts_counter, comparison: { greater_than_or_equal_to: 0 },
                             numericality: { only_integer: true }
 
-  Roles = %i[admin default].freeze
-
   def is?(requested_role)
     role == requested_role.to_s
   end
