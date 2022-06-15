@@ -16,6 +16,12 @@ gem 'bullet'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+
+  gem 'rspec-rails'
+
+  gem 'capybara'
+
+  gem 'webdrivers'
 end
 
 group :development do
@@ -24,18 +30,12 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'
   gem 'selenium-webdriver'
-  gem 'webdrivers'
+  gem 'database_cleaner-active_record'
 end
 
 gem 'rails-controller-testing'
 gem 'rubocop', '>= 1.0', '< 2.0'
-
-group :development, :test do
-  gem 'rspec-rails'
-end
-
 gem 'bootstrap', '~> 5.0'
 gem 'bootstrap_form', '~> 5.0'
 gem 'cancancan'
