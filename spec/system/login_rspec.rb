@@ -12,7 +12,7 @@
 #       confirmed_at: '2022-06-15 18:08:24.835529'
 #     )
 
-#     @user_2 = User.create(
+#     @user_2 = User.create!(
 #       name: 'Arun Tata',
 #       photo: 'https://randomuser.me/api/portraits/men/4.jpg',
 #       bio: 'Condimentum mattis pellentesque id nibh tortor.',
@@ -21,7 +21,7 @@
 #       created_at: '2022-06-15 06:29:35.011315',
 #       confirmed_at: '2022-06-15 18:08:24.835529'
 #     )
-#     @user_3 = User.create(
+#     @user_3 = User.create!(
 #       name: 'Alemayehu Libero',
 #       photo: 'https://randomuser.me/api/portraits/men/5.jpg',
 #       bio: 'Condimentum mattis pellentesque id nibh tortor.',
