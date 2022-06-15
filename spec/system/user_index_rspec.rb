@@ -33,6 +33,8 @@ RSpec.describe 'UserIndexPage', type: :system do
     )
   end
 
+  context 'testing' do
+
   before :each do
     visit root_path
     fill_in 'user_email', with: 'a@g.com'
@@ -40,19 +42,23 @@ RSpec.describe 'UserIndexPage', type: :system do
     click_button 'Log in'
   end
 
-  context 'testing' do
     it 'shows the username of all other users' do
-      expect(page).to include(@user1.name, @user2.name)
+      expect(page).to have_content(@user1.name)
+      expect(page).to have_content(@user2.name)
     end
 
     it 'shows the profile picture for each user' do
-      expect(page).to include(@user1.photo, @user2.photo)
+      expect(page.has_xpath?("//img[@src = '#{@user1.photo}' ]"))
+      expect(page.has_xpath?("//img[@src = '#{@user2.photo}' ]"))
     end
 
     it 'shows the number of posts each user has written' do
+
     end
 
-    # it 'redirects to a user\'s show page, when that user is clicked upon' do
-    # end
+    it 'redirects to a user\'s show page, when that user is clicked upon' do
+    all('.btn-primary').first.click
+    expect(page).to have_current_path(user_path(id:@user1.id))
+    end
   end
 end
