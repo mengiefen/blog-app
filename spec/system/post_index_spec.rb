@@ -1,6 +1,6 @@
 # require 'rails_helper'
 
-# RSpec.describe 'UserShowPage', type: :system do
+# RSpec.describe 'PostIndexPage', type: :system do
 #   before :all do
 #     @user1 = User.create!(name: 'Babi', photo: 'https://randomuser.me/api/portraits/men/3.jpg',
 #                           bio: 'I used to spend hours writing creative copy', email: 'b@g.com', password: '123456',
@@ -19,11 +19,21 @@
 #     @post3 = Post.create!(author_id: 1, title: 'Sample post3', text: 'Sample Text Content 3')
 #     @post4 = Post.create!(author_id: 1, title: 'Sample post3', text: 'Sample Text Content 3')
 #     @post5 = Post.create!(author_id: 2, title: 'Sample post4', text: 'Sample Text Content 4')
-#     @post6 = Post.create!(author_id: 2, title: 'Sample post1', text: 'Sample Text Content 1')
+#     @post6 = Post.create!(author_id: 2, title: 'Sample post4', text: 'Sample Text Content 1')
 #     @post7 = Post.create!(author_id: 1, title: 'Sample post2', text: 'Sample Text Content 2')
 #     @post8 = Post.create!(author_id: 3, title: 'Sample post3', text: 'Sample Text Content 3')
 #     @post9 = Post.create!(author_id: 3, title: 'Sample post4', text: 'Sample Text Content 4')
+
+#     @comment1 = Comment.create!(author_id: 1, post_id: 1, text: 'Comment-1')
+#     @comment1 = Comment.create!(author_id: 2, post_id: 1, text: 'Comment-1')
+#     @comment1 = Comment.create!(author_id: 3, post_id: 1, text: 'Comment-1')
+
+#     @like1 = Like.create!(author_id: 1, post_id: 1)
+#     @like2 = Like.create!(author_id: 2, post_id: 1)
+#     @like3 = Like.create!(author_id: 3, post_id: 1)
 #   end
+
+#   # rubocop:disable Metrics/BlockLength
 
 #   context 'testing' do
 #     before :each do
@@ -31,30 +41,46 @@
 #       fill_in 'user_email', with: 'a@g.com'
 #       fill_in 'user_password', with: '123456'
 #       click_button 'Log in'
-#       visit user_path(id: @user1.id)
+#       visit user_posts_path(user_id: @user1.id)
 #     end
 
-#     it 'Shows the user\'s profile picture' do
+#     it 'I can see the user\'s profile picture.' do
 #       expect(page.has_xpath?("//img[@src = '#{@user1.photo}' ]"))
 #     end
 
-#     it 'Shows the user\'s username' do
+#     it 'I can see the user\'s username.' do
 #       expect(page).to have_content @user1.name
 #     end
 
-#     it 'Shows the the number of posts the user has written' do
+#     it 'I can see the post\'s title' do
+#       expect(page).to have_content 'Post # 1'
+#     end
+
+#     it 'I can see the number of posts the user has written.' do
 #       expect(page).to have_content('Number of Posts: 5')
 #     end
-#     it 'Shows the user\'s bio' do
-#       expect(page).to have_content @user1.bio
+
+#     it 'I can see some of the post\'s body.' do
+#       expect(page).to have_content @post1.text
 #     end
 
-#     it 'Shows the user\'s first 3 posts' do
-#       expect(page).to have_selector('.card', count: 5)
+#     it 'I can see the first comments on a post.' do
+#       expect(page).to have_content @post1.comments.first.text
 #     end
 
-#     it 'Shows a button that lets me view all of a user\'s posts' do
-#       expect(page).to have_button('See All Posts')
+#     it 'I can see how many comments a post has.' do
+#       expect(page).to have_content '1'
+#     end
+
+#     it 'I can see how many likes a post has.' do
+#       expect(page).to have_content '1'
+#     end
+
+#     it 'When I click on a post, it redirects me to that post\'s show page.' do
+#       all('.btn-link').first.click
+#       expect(page).to have_current_path(user_post_path(user_id: @user1.id, id: @post1.id))
 #     end
 #   end
 # end
+
+# # rubocop:enable Metrics/BlockLength
