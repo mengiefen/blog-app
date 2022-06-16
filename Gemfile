@@ -15,7 +15,10 @@ gem 'bootsnap', require: false
 gem 'bullet'
 
 group :development, :test do
+  gem 'capybara'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails'
+  gem 'webdrivers'
 end
 
 group :development do
@@ -24,16 +27,8 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'
+  gem 'database_cleaner-active_record'
   gem 'selenium-webdriver'
-  gem 'webdrivers'
-end
-
-gem 'rails-controller-testing'
-gem 'rubocop', '>= 1.0', '< 2.0'
-
-group :development, :test do
-  gem 'rspec-rails'
 end
 
 gem 'bootstrap', '~> 5.0'
@@ -42,4 +37,6 @@ gem 'cancancan'
 gem 'cssbundling-rails'
 gem 'devise'
 gem 'rack-cors', require: 'rack/cors'
+gem 'rails-controller-testing'
+gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'seed_dump'

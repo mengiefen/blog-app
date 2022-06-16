@@ -2,7 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   subject do
-    @user = User.create(name: 'John', photo: 'photo_url', bio: "Jhon's biography", posts_counter: 0)
+    @user = @user1 = User.create!(id: 11_111, name: 'Babi', photo: 'https://randomuser.me/api/portraits/men/3.jpg',
+                                  bio: 'I used to spend hours writing creative copy',
+                                  email: 'b@g.com', password: '123456',
+                                  created_at: '2022-06-15 06:29:35.011315', confirmed_at: '2022-06-15 18:08:24.835529')
+
     Post.new(author: @user, title: 'Title', text: 'Post content')
   end
 
@@ -36,14 +40,14 @@ RSpec.describe Post, type: :model do
   end
 
   describe '#methods' do
-    it 'it increments to 1' do
+    it 'it increments to 2' do
       subject.increment_post_count
-      expect(subject.author.posts_counter).to eq 1
+      expect(subject.author.posts_counter).to eq 2
     end
 
     it 'it decrements to 0' do
       subject.decrement_post_count
-      expect(subject.author.posts_counter).to eq(-1)
+      expect(subject.author.posts_counter).to eq(0)
     end
   end
 end

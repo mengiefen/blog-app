@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   before do
+    @user1 = User.create!(id: 11_111, name: 'Babi', photo: 'https://randomuser.me/api/portraits/men/3.jpg',
+                          bio: 'I used to spend hours writing creative copy', email: 'b@g.com', password: '123456',
+                          created_at: '2022-06-15 06:29:35.011315', confirmed_at: '2022-06-15 18:08:24.835529')
+
     @user = User.create(id: 11_111, name: 'John', photo: 'photo_url', bio: "Jhon's biography", posts_counter: 0)
   end
 
