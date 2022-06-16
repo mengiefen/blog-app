@@ -3,6 +3,16 @@ class CommentsController < PostsController
     @comment = Comment.new
   end
 
+  def index
+    @post = Post.find_all(author_id:params[:user_id,], id:params[:post_id])
+    @comments = @post.comments
+    
+    respond_to do |format|      
+      format.html
+      format.json { render json: @comments }
+    end
+  end
+
   def create
     @comment = Comment.new(comment_params)
 
