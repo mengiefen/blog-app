@@ -4,27 +4,33 @@ class CommentsController < PostsController
   end
 
   def index
-    @post = Post.find_all(author_id:params[:user_id,], id:params[:post_id])
+    @post = Post.find_all(author_id: params[:user_id,], id: params[:post_id])
     @comments = @post.comments
-    
-    respond_to do |format|      
+
+    respond_to do |format|
       format.html
       format.json { render json: @comments }
     end
   end
 
   def create
-    @comment = Comment.new(comment_params)
-
-    if @comment.save
-      flash[:notice] = 'Your comment is successfuly added!'
-      redirect_to user_post_path(
-        user_id: params[:user_id],
-        id: params[:post_id]
-      )
-    else
-      flash[:alert] = 'Unable to create new comment!'
-      render :new
+    @user = current_user
+    @post = Post.find(params[:post_id])
+    @comments = Comment.new(author_id: @user, post_id: @post, text: params[:text])
+    respond_to do |_format|
+      if @comment.save
+        flash[:notice] = 'Your comment is successfuly added!'
+        format.html
+        format.json { render json: @comment, status: :created }
+        redirect_to user_post_path(
+          user_id: params[:user_id],
+          id: params[:post_id]
+        )
+      else
+        flash[:alert] = 'Unable to create new comment!'
+        head :not_found
+        render :new
+      end
     end
   end
 
