@@ -29,7 +29,7 @@
 
   <div  class="form-group w-60">    
     <label for="user_bio">  Biography</label>
-    <%= form.text_field :bio, size:"70x10", id:"user_bio", 
+    <%= form.text_area :bio, size:"70x10", id:"user_bio", 
                           class:"form-control",
                           placeholder:"Eneter biography"
                           %>
@@ -42,7 +42,7 @@
 
   </div>
     
-  <%= form.submit class: "btn btn-primary w-auto mt-3" do %>
+  <%= form.submit class: "btn btn-dark w-auto mt-3" do %>
     <%if action='update'%>
         "UPDATE USER"
       <% else %>

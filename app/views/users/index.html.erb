@@ -2,5 +2,7 @@
   <%@users.each do |user| %>
      <%= render "shared/profile",  user: user %>   
   <%end %>
-  <%= link_to 'New User', new_user_path, class: "btn btn-success my-3 px-5 py-2 align-self-end" %>
+  <% if can? :manage, @users %>
+    <%= link_to 'New User', new_user_path, class: "btn btn-dark my-3 px-5 py-2 align-self-end" %>
+  <% end %>
 </section>
