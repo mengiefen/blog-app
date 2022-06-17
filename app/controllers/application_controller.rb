@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
 
   def verify_user?
     return true if authenticate_token
-    render json: { errors: [ { detail: "Access denied" } ] }, status: 401
+
+    render json: { errors: [{ detail: 'Access denied' }] }, status: 401
   end
 
   def authenticate_token

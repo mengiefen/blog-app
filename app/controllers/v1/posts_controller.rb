@@ -6,5 +6,4 @@ class V1::PostsController < ApplicationController
     @posts = @user.posts.order(created_at: :asc)
     render json: @posts, status: :ok
   end
-
 end

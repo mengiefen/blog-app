@@ -1,4 +1,4 @@
-class V1::CommentsController < ApplicationController	
+class V1::CommentsController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
@@ -10,14 +10,14 @@ class V1::CommentsController < ApplicationController
   end
 
   def create
-  	@user = current_user
+    @user = current_user
     @post = Post.find(params[:post_id])
-    @comments = Comment.new(author_id: @user, post_id: @post, text: params[:text])	
+    @comments = Comment.new(author_id: @user, post_id: @post, text: params[:text])
 
-  	if @comment.save     
-  		render json: @comment, status: :created              
-  	else       
-        head :not_found        
-  	end
+    if @comment.save
+      render json: @comment, status: :created
+    else
+      head :not_found
+    end
   end
 end
