@@ -7,9 +7,10 @@
       <strong class="pe-5" >Number of Posts: <%= user.posts_counter || 0%></strong>
       <% unless params[:id] %>
         <ul class="user-btn-list d-flex list-unstyled"> 
-          <li><%= link_to "See Posts", user, class:"btn btn-primary me-3" %></li>
-          <li><%= link_to "Edit", edit_user_path(user), class: "btn btn-secondary me-3" %></li>
-       
+          <li><%= link_to "See Posts", user, class:"btn btn-dark me-3" %></li>
+          <% if can? :manage, @users %>
+            <li><%= link_to "Edit", edit_user_path(user), class: "btn btn-secondary me-3" %></li>
+          <% end %>
         </ul>      
       <%end %>
     </div>

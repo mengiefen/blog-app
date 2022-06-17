@@ -28,4 +28,22 @@ class User < ApplicationRecord
   def recent_post
     posts.order(created_at: :desc).limit(3)
   end
+
+  private
+  
+  def password(raw)
+    self.password = BCrypt::Password.create(raw)
+  end
+
+  def password_confirm(raw)
+    self.password_confirm = BCrypt::Password.create(raw)
+  end
+
+  def is_password?  
+    BCrypt::Password.new(password).is_password?(raw)
+  end
+
+  def is_password_confirmed?
+    BCrypt::Password.new.is_password?(raw)
+  end
 end

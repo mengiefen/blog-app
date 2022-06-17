@@ -2,12 +2,13 @@
   
   <%= render "shared/profile",  user: @user %>
   <div class="d-flex">    
-    <%= link_to "NEW POST", new_user_post_path(@user), class:"btn btn-primary me-3" %>
-    
-    <%= button_to "DELETE USER", user_path,                                                      
-                    confirm: "Are you sure?",                
-                    method: :delete, 
-                    class:"btn btn-danger "  %>
+    <%= link_to "NEW POST", new_user_post_path(@user), class:"btn btn-secondary me-3" %>
+    <% if can? :manage, @users %>
+      <%= button_to "DELETE USER", user_path,                                                      
+                      confirm: "Are you sure?",                
+                      method: :delete, 
+                      class:"btn btn-danger "  %>
+    <%end%>
   </div>
   <div class="card mt-2 p-3 user-bio bg-content">
     <h3>Bio</h3>
@@ -22,5 +23,5 @@
     <input type="button" value="See All Posts" class= "btn btn-secondary me-3 my-3" />
   <%end%>
 
-  <%= link_to "HOME", users_path, class:"btn btn-primary my-3" %>    
+  <%= link_to "HOME", users_path, class:"btn btn-dark my-3" %>    
 </section>
