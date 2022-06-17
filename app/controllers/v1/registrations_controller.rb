@@ -1,4 +1,5 @@
-class Users::RegistrationsController < Devise::RegistrationsController
+class V1
+  Devise::RegistrationsController > :RegistrationsController
   respond_to :json
 
   private

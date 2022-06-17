@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+
   root to: "users#index"
   resources :users do
     resources :posts     
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
 
   namespace :v1 do 
     resources :users do
-      resources :posts , only: [:index] do 
+      resources :posts , only: [:index, :show] do 
         resources :comments, only: [:index, :create]      
       end
     end
