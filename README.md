@@ -3,7 +3,7 @@
 
 # Blog App - Ruby on Rails
 
-The Blog app is a classic example of a blog website that is fully functional website. It includes the list of posts and empower readers to interact with them by adding comments and liking posts. The app is build with consideration of the followinf data model(Entity Relationship Diagram):
+The Blog-app is a classic example of a blog website that is fully functional website. It includes the list of posts and empower readers to interact with them by adding comments and liking posts. The app is built condidering the following data model(Entity Relationship Diagram):
 
 ![](blog_app_erd.png)
 
