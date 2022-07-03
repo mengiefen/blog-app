@@ -47,7 +47,14 @@ To get a local copy up and running follow these simple example steps.
 - Twitter: [@MengistuFentaw](https://twitter.com/MengistuFentaw)
 - Linkedin: [@mengefen](https://www.linkedin.com/in/mengefen/)
 
+👤 **Ivan Silva**
+
+- GitHub: [@iKuartz](https://github.com/iKuartz/)
+- Twitter: [@iKuartz01](https://twitter.com/iKuartz01)
+- LinkedIn: [Ivan Silva](https://www.linkedin.com/in/ivan-silva-a47058b3/)
+
 ## Contributers
+
 
 
 ## 📝 License
